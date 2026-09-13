@@ -46,29 +46,3 @@ reasons.forEach(reason => {
     });
 
 });
-
-/* =========================
-   LOVE LETTER TYPEWRITER
-========================= */
-
-const letterText = document.getElementById("loveLetterText");
-
-const originalText = letterText.textContent.trim();
-
-letterText.textContent = "";
-
-let letterIndex = 0;
-
-function typeLetter() {
-
-    if (letterIndex < originalText.length) {
-
-        letterText.textContent += originalText.charAt(letterIndex);
-
-        letterIndex++;
-
-        setTimeout(typeLetter, 35);
-
-    }
-
-}
