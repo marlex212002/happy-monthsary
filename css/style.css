@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #fff8f5;
+    color: #4a3030;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   OPENING SCREEN
+========================= */
+
+.opening {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+.opening-content {
+    animation: fadeIn 1.5s ease;
+}
+
+.heart {
+    font-size: 70px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.opening h1 {
+    font-size: 42px;
+    margin: 20px 0 10px;
+}
+
+.opening p {
+    font-size: 18px;
+    opacity: 0.7;
+}
+
+button {
+    font-family: inherit;
+}
+
+#openButton {
+    margin-top: 30px;
+
+    padding: 14px 25px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: #b85c70;
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+#openButton:hover {
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.hidden {
+    display: none;
+}
+
+.hero {
+    min-height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 25px;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin: 15px 0;
+}
+
+.small-text {
+    letter-spacing: 3px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 80px 25px;
+}
+
+.section h2 {
+    text-align: center;
+
+    margin-bottom: 35px;
+
+    font-size: 30px;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    background: #fffdf9;
+
+    padding: 35px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 10px 30px rgba(80, 30, 30, 0.08);
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+.letter p {
+    margin-bottom: 20px;
+}
+
+.signature {
+    text-align: right;
+}
+
+
+/* =========================
+   MEMORIES
+========================= */
+
+.memory-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 25px;
+}
+
+.memory-card {
+    background: white;
+
+    padding: 12px;
+
+    box-shadow:
+        0 8px 20px rgba(80, 30, 30, 0.1);
+
+    transform: rotate(-1deg);
+
+    transition: 0.3s;
+}
+
+.memory-card:nth-child(2) {
+    transform: rotate(2deg);
+}
+
+.memory-card:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+.memory-card img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+}
+
+.memory-card p {
+    padding: 15px 5px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   REASONS
+========================= */
+
+.reasons {
+    display: grid;
+
+    gap: 15px;
+}
+
+.reason {
+    width: 100%;
+
+    padding: 20px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: white;
+
+    box-shadow:
+        0 5px 20px rgba(80, 30, 30, 0.08);
+
+    font-size: 17px;
+
+    cursor: pointer;
+}
+
+.reason span {
+    display: none;
+
+    margin-top: 10px;
+
+    opacity: 0.7;
+}
+
+.reason.active span {
+    display: block;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+    min-height: 80vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 25px;
+}
+
+.final h2 {
+    font-size: 30px;
+
+    margin: 20px 0;
+}
+
+.final p {
+    max-width: 500px;
+
+    line-height: 1.7;
+}
+
+.final h1 {
+    margin-top: 40px;
+
+    font-size: 40px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+/* =========================
+   OPENING TRANSITION
+========================= */
+
+.opening {
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.opening-hidden {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+}
+
+
+/* Main content starts invisible */
+
+#mainContent {
+    opacity: 0;
+}
+
+
+/* Main content reveal */
+
+#mainContent.show-content {
+    animation: contentReveal 1.2s ease forwards;
+}
+
+
+@keyframes contentReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
